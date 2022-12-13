@@ -3,6 +3,7 @@
 # dependencies
 /node_modules
 /.pnp
+/_history
 .pnp.js
 
 # testing

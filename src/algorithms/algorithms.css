@@ -1,0 +1,40 @@
+
+.screen {
+    background-color: aquamarine;
+    height: 100vh;
+}
+
+.inside {
+    position: relative;
+    left: 20px;
+}
+.space {
+    height: 10px;
+}
+
+.inputbox {
+    width: 30px;
+}
+
+.img {
+    width: 15%;
+    height: 15%;
+}
+
+.textarea {
+    width: 300px;
+    height: 300px;
+}
+
+.boxes {
+    display: flex;
+}
+
+.box {
+    border: solid 1px aquamarine;
+    height: 120px;
+}
+
+.bordertop {
+    border-top: 1px solid black;
+}

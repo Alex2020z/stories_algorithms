@@ -1,0 +1,28 @@
+.screen {
+    background-color: aquamarine;
+    height: 100vh;
+}
+
+.inside {
+    position: relative;
+    top: 10px;
+    left: 10px;
+    width: 700px;
+    box-sizing: border-box;
+}
+
+.space {
+    height: 10px;
+}
+
+.table {
+    border: solid 1px;
+    padding: 3px;
+    margin-top: 14px;
+}
+
+.storynumber {
+    text-align: center;
+}
+/*
+*/

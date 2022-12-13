@@ -1,0 +1,57 @@
+.screen {
+    background-color: aquamarine;
+    height: 100vh;
+}
+
+.title {
+    font: 32px bold;
+    position: relative;
+    top: 10px;
+    left: 50px;
+    width: 700px;
+    box-sizing: border-box;
+}
+
+.space2 {
+    height: 20px;
+}
+
+.login {
+    font: 24px bold;
+    position: relative;
+    top: 10px;
+    left:10px;
+    width: 200px;
+    box-sizing: border-box;
+}
+
+.form {
+    position: relative;
+    box-sizing: border-box;
+    top: 20px;
+    left:30px;
+    width: 500px;
+}
+
+.submit {
+    position: relative;
+    top: 10px;
+    left:0px;
+    font: 24px bold;
+    font-size: large;
+}
+.register {
+    position: relative;
+    top: 50px;
+    left:10px;
+    font: 24px bold;
+    font-size: large;
+    width: 200px;
+}
+
+.warning {
+    color: red;
+    position: relative;
+    top: 60px;
+    left:10px;
+}
