@@ -19,7 +19,7 @@ import TaskStackTemperature from "./algorithms/taskStackTemperature";
 import './App.css';
 import './algorithms/algorithms.css';
 
-const Media: React.FC = () => {
+const App: React.FC = () => {
     const [links, setLinks] = useState(false);
     const connectedUserId = useSelector((state: State) => state.loginReducer.userId);
 
@@ -72,7 +72,7 @@ const Media: React.FC = () => {
     );
 }
 
-export default Media;
+export default App;
 
 /*
 //TASK FROM https://www.freecodecamp.org/news/5-react-projects-you-need-in-your-portfolio/
