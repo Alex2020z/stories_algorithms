@@ -13,6 +13,7 @@ export const UserProfile: React.FC = () => {
 
     return (
         <div>
+            <div className='space'></div>
             <div><b>Profile:</b></div>
             <div>User name: <b>{userId ? getUserNameByUserId(userId) : ''}</b></div>
         </div>

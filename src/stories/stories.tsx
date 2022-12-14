@@ -101,7 +101,7 @@ export const UserStories: React.FC<UserStoriesProps> = (props: UserStoriesProps)
     const getModalDialog = () => {
         const text = selectedStoryId ? getStoryTextFromLocalStorageByStoryId(selectedStoryId) : '';
 
-        return (<Modal isOpen={isOpen} contentLabel="Story">
+        return (<Modal isOpen={isOpen} contentLabel="Story" ariaHideApp={false}>
             <div className='screen'>
             <div className='inside'>
                 <div><b>Story:</b></div>
@@ -126,12 +126,10 @@ export const UserStories: React.FC<UserStoriesProps> = (props: UserStoriesProps)
     
     return (
         <div>
-            <div>User name: <b>{getUserNameByUserId(currUserId.current)}</b></div>
-            {stories.length > 0 && (
-                <div>Stories:
-                    {getStories()}
-                </div>
-            )}
+            <div className='space'></div>
+            <div><b>Stories by user {getUserNameByUserId(currUserId.current)}:</b></div>
+            <div className='space'></div>
+            {stories.length > 0 && (<div>{getStories()}</div>)}
             {canShow() && (<button onClick={() => handleAddEditStory('')}>Add Story</button>)}
         `   <div>
                 {getModalDialog()}

@@ -21,6 +21,7 @@ export const UsersPage: React.FC = () => {
         
     return (
         <div>
+            <div className='space'></div>
             <div>
                 <div>My user name: <b>{getUserNameByUserId(connectedUserId)}</b> </div>
                 <div className='space'></div>

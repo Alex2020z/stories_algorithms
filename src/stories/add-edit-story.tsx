@@ -15,7 +15,8 @@ export const UserStories: React.FC<AddEditStoryProps> = (props: AddEditStoryProp
 
     return (
         <div className='screen'>
-            <div>Stories:</div>
+            <div className='space'></div>
+            <div><b>Stories:</b></div>
             <div>selectedUserId: {props.selectedUserId}</div>
             <div>userId: {userId}</div> 
             <button onClick={handleAddStory}>Add Story</button>

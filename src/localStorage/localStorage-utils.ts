@@ -127,8 +127,11 @@ export const getStoriesFromLocalStorageByUserId = (userId: string): any[] => {
 export const getStoryTextFromLocalStorageByStoryId = (storyId: string): string => {
     //story in Local Sorage: key = 'story-N/user-username|password', item is Story
     const packedStory = localStorage.getItem(storyId);
-    const story: Story = JSON.parse(packedStory ? packedStory : '');
-    return story.storyText;
+    if (packedStory) {
+        const story: Story = JSON.parse(packedStory);
+        return story.storyText;
+    }
+    return '';
 };
 
 

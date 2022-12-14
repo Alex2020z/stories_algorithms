@@ -22,6 +22,7 @@ import './algorithms/algorithms.css';
 const App: React.FC = () => {
     const [links, setLinks] = useState(false);
     const connectedUserId = useSelector((state: State) => state.loginReducer.userId);
+    const handleClick = () => setLinks(false);
 
     return (
         <div className='screen'>
@@ -29,24 +30,29 @@ const App: React.FC = () => {
             <BrowserRouter>
                 {connectedUserId && (
                 <nav className={'nav'}>
+                    <div>
+                    <span>
                     <Link to='/users' className={'link'}  onClick={() => setLinks(false)}>Users and Stories</Link>
-                    <Link to='/algorithms' className={'link'} onClick={() => setLinks(!links)}>Algorithms
+                    </span>
+                    <span>
+                    <Link to='/algorithms' className={'link'} onClick={() => setLinks(!links)}>Algorithms</Link>
                     <div>                    
                         {links && (
                             <ul>
-                                <li><Link to="/algsort">Алгоритмы сортировки (метод пузырька, merge sort, insert sort)</Link></li>
-                                <li><Link to="/alghashtable">Алгоритм: Хеш-таблица (метод цепочек)</Link></li>
-                                <li><Link to="/algtree">Алгоритм: АВЛ-дерево</Link></li>
-                                <li><Link to="/alggraph">Алгоритмы для графов (DFS, BFS, Дейкстры)</Link></li>
-                                <li><Link to="/algsearchwordinstring">Алгоритм Бойера-Мура-Хорспула: найти слово во фразе</Link></li>
-                                <li><Link to="/taskpathnumber">Задача: поиск максимального числа путей в прямоугольнике</Link></li>
-                                <li><Link to="/tasksearchcelebrity">Задача: поиск знаменитости</Link></li>
-                                <li><Link to="/taskfindpair">Задача: найти пару в сумме равную заданному числу</Link></li>
-                                <li><Link to="/tasktemperature">Задача: вычислить сколько дней до ближайшего более теплого дня</Link></li>
+                                <li><Link to="/algsort" onClick={handleClick}>Алгоритмы сортировки (метод пузырька, merge sort, insert sort)</Link></li>
+                                <li><Link to="/alghashtable" onClick={handleClick}>Алгоритм: Хеш-таблица (метод цепочек)</Link></li>
+                                <li><Link to="/algtree" onClick={handleClick}>Алгоритм: АВЛ-дерево</Link></li>
+                                <li><Link to="/alggraph" onClick={handleClick}>Алгоритмы для графов (DFS, BFS, Дейкстры)</Link></li>
+                                <li><Link to="/algsearchwordinstring" onClick={handleClick}>Алгоритм Бойера-Мура-Хорспула: найти слово во фразе</Link></li>
+                                <li><Link to="/taskpathnumber" onClick={handleClick}>Задача: поиск максимального числа путей в прямоугольнике</Link></li>
+                                <li><Link to="/tasksearchcelebrity" onClick={handleClick}>Задача: поиск знаменитости</Link></li>
+                                <li><Link to="/taskfindpair" onClick={handleClick}>Задача: найти пару в сумме равную заданному числу</Link></li>
+                                <li><Link to="/tasktemperature" onClick={handleClick}>Задача: вычислить сколько дней до ближайшего более теплого дня</Link></li>
                             </ul>
                         )}
                         </div>
-                    </Link>
+                    </span>
+                    </div>
                 </nav>
                 )}
                 <Routes>
