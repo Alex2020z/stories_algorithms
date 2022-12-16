@@ -21,7 +21,7 @@ import './algorithms/algorithms.css';
 
 const App: React.FC = () => {
     const [links, setLinks] = useState(false);
-    const connectedUserId = useSelector((state: State) => state.loginReducer.userId);
+    const connectedUserId = useSelector((state: State) => state.loginReducer.connectedUserId);
     const handleClick = () => setLinks(false);
 
     return (

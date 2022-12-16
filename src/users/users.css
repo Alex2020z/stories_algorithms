@@ -1,7 +1,6 @@
 .screen {
     background-color: aquamarine;
-    height: 100vh;
-}
+} 
 
 .inside {
     position: relative;
@@ -24,5 +23,3 @@
 .storynumber {
     text-align: center;
 }
-/*
-*/

@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import { useDispatch } from 'react-redux';
-import { setUserName, setUserId, setUserList } from '../reducers/login-reducer/actions';
+import { setConnectedUserName, setConnectedUserId, setUserList, thunkSetIsLoading } from '../reducers/login-reducer/login-slice';
 import { useNavigate } from 'react-router-dom';
 import { getUsersFromLocalStorage, isUserFoundInLocalStorage, 
     getLocalStorageUserId, saveNewUserInLocalStorage } from '../localStorage/localStorage-utils';
@@ -25,12 +25,12 @@ export const Login: React.FC<PageProps> = ({ isNew }) => {
     const [credenialsCreated, setCredenialsCreated] = useState(false);
     const [warning, setWarning] = useState(0);
     const dispatch = useDispatch();
-    //localStorage.clear(); //uncomment to clean up data
+    //localStorage.clear(); //keep this line. uncomment to clean up all data
 
     const navigate = useNavigate();
 
     useEffect(() => {
-        dispatch(setUserId(''));
+        dispatch(setConnectedUserId(''));
         setUsername('');
         setPassword('');
     }, 
@@ -54,12 +54,13 @@ export const Login: React.FC<PageProps> = ({ isNew }) => {
         isNew ? registerUser(event) : findUser(event);
     };
 
-    const findUser = (event: React.FormEvent<HTMLFormElement>) => {
+    const findUser = async (event: React.FormEvent<HTMLFormElement>) => {
         if (isUserFoundInLocalStorage(username, password)) {
             const lsUserId = getLocalStorageUserId(username, password);
-            dispatch(setUserName(username));
-            dispatch(setUserId(lsUserId));
+            dispatch(setConnectedUserName(username));
+            dispatch(setConnectedUserId(lsUserId));
             dispatch(setUserList(getUsersFromLocalStorage()));
+            await thunkSetIsLoading(dispatch); //check thunk func
 
             navigate('/algorithms');
         } else {
@@ -105,7 +106,7 @@ export const Login: React.FC<PageProps> = ({ isNew }) => {
             <div className='title'>DEMO APPLICATION: USERS & ALGORITHMS</div>
             <div className='space2'></div>
             <div>
-                <div className='login'>{isNew ? 'Register: ' : 'Enter login:'}</div>
+                <div className='login'>{isNew ? 'Registration: ' : 'Enter login:'}</div>
                 <form onSubmit={event => handleSubmit(event)} className='form'>
                     <div>
                         <label htmlFor="userName">Your user name:&nbsp;&nbsp;
@@ -117,7 +118,7 @@ export const Login: React.FC<PageProps> = ({ isNew }) => {
                             <input type="password" className='input' id="password" onChange={event => handleChangePassword(event)} value={password}/>
                         </label>
                     </div>
-                    <button className='submit'>Submit</button>
+                    <button className='submit'>{!isNew ? 'Submit' : 'Register'}</button>
                 </form>
             </div>
             <div>
@@ -127,7 +128,7 @@ export const Login: React.FC<PageProps> = ({ isNew }) => {
                 {warning === WARNING_FILL && <div className='warning'>Fill in username and password.</div>}
                 {warning === WARNING_USER_NOT_FOUND && <div className='warning'>User {username} has not been found. Try to enter the credentials again.</div>}
                 {warning === WARNING_USER_DUPLICATED && <div className='warning'>Cannot be saved. Enter different credentials.</div>}
-                {warning === WARNING_USER_CREATED && <div className='warning'>User {username} has been created.</div>}
+                {warning === WARNING_USER_CREATED && <div className='info'>User {username} has been registered.</div>}
             </div>
         </div>
     );

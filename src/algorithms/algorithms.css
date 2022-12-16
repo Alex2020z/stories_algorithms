@@ -38,3 +38,8 @@
 .bordertop {
     border-top: 1px solid black;
 }
+
+.loading {
+    color: red;
+    font-size: 20px;
+}

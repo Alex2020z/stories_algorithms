@@ -1,10 +1,10 @@
-import * as loginReducer from './login-reducer/login-reducer';
-//import userReducer from './login-reducer/login-slice';
+
+import loginReducer, {State as loginState } from './login-reducer/login-slice';
 
 export interface State {
-    loginReducer: loginReducer.State;
+    loginReducer: loginState;
 }
 
 export const reducer = {
-   loginReducer: loginReducer.reducer,
+   loginReducer: loginReducer,
 };

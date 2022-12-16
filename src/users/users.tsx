@@ -8,7 +8,7 @@ import './users.css';
 
 export const UsersPage: React.FC = () => {
     const navigate = useNavigate();
-    const connectedUserId = useSelector((state: State) => state.loginReducer.userId);
+    const connectedUserId = useSelector((state: State) => state.loginReducer.connectedUserId);
     const users = useSelector((state: State) => state.loginReducer.users);
 
     const handleProfile = (id: string) => {

@@ -1,48 +1,69 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import { User } from '../../localStorage/localStorage-utils';
 
-  export interface State {
+export interface State {
     users: User[];
-    userName: string;
-    userId: string;
+    connectedUserName: string;
+    connectedUserId: string;
+    isLoading: boolean;
 }
+
 
 const initialState: State = {
     users: [],
-    userName: '',
-    userId: '',
+    connectedUserName: '',
+    connectedUserId: '',
+    isLoading: false,
 };
 
 const userSlice = createSlice({
     name: 'user',
     initialState,
     reducers: {
-        setUserName(state, action) {
+        setConnectedUserName(state, action) {
 	        return {
 		        ...state,
-		        userName: action.payload,
+		        connectedUserName: action.payload,
 		    }
         },
-        setUserId(state, action) {
+        setConnectedUserId(state, action) {
 	        return {
 		        ...state,
-		        userId: action.payload,
+		        connectedUserId: action.payload,
 		    }
         },
-
         setUserList(state, action) {
 	        return {
 		        ...state,
 		        users: action.payload,
 		    }
         },
+        setIsLoading(state, action) {
+	        return {
+		        ...state,
+		        isLoading: action.payload,
+		    }
+        }
     }
 });
 
 export const {
-    setUserName,
-    setUserId,
+    setConnectedUserName,
+    setConnectedUserId,
     setUserList,
+    setIsLoading,
   } = userSlice.actions
   
 export default userSlice.reducer;
+
+// Thunk function:
+export async function thunkSetIsLoading(dispatch: any) {
+    dispatch({ type: 'user/setIsLoading', payload: true });
+    console.log('t1=', new Date().getTime());
+
+    setTimeout(() => {
+        console.log('t2=', new Date().getTime());
+        dispatch({ type: 'user/setIsLoading', payload: false })
+    }, 1000);
+}
+

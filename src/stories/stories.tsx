@@ -80,7 +80,7 @@ export const UserStories: React.FC<UserStoriesProps> = (props: UserStoriesProps)
                 <div  key={ind}>
                     <textarea 
                         value={getStoryAsLineWithBreaks(story.storyText)}
-                        style={{height: '70px', width: '200px'}}  
+                        style={{height: '70px', width: '400px'}}  
                         readOnly
                     >
                     </textarea>
@@ -110,7 +110,7 @@ export const UserStories: React.FC<UserStoriesProps> = (props: UserStoriesProps)
                     <textarea 
                         ref={ref} 
                         defaultValue={text}
-                        style={{width: '200px', height: '200px'}}>
+                        style={{width: '400px', height: '400px'}}>
                     </textarea>
                 </div>
                 <div className='space'></div>
