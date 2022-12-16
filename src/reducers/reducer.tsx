@@ -1,18 +1,10 @@
-import { combineReducers } from 'redux';
 import * as loginReducer from './login-reducer/login-reducer';
+//import userReducer from './login-reducer/login-slice';
 
 export interface State {
     loginReducer: loginReducer.State;
 }
 
-export const initialState: State = {
-    loginReducer: loginReducer.initialState,
-}
-
-const reducer = {
+export const reducer = {
    loginReducer: loginReducer.reducer,
 };
-
-const rootReducer = combineReducers(reducer);
-
-export default rootReducer;

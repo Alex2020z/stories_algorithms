@@ -1,6 +1,4 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
-//import ActionWithPayload from '../utils';
-//import { USER_NAME, USER_ID, USER_LIST } from './constants';
 import { User } from '../../localStorage/localStorage-utils';
 
   export interface State {
@@ -19,23 +17,32 @@ const userSlice = createSlice({
     name: 'user',
     initialState,
     reducers: {
-        userName(state, action) {
-            state.userName = action.payload;
+        setUserName(state, action) {
+	        return {
+		        ...state,
+		        userName: action.payload,
+		    }
         },
-        userId(state, action) {
-           state.userId = action.payload;
+        setUserId(state, action) {
+	        return {
+		        ...state,
+		        userId: action.payload,
+		    }
         },
-        userList(state, action) {
-            state.users = action.payload;
+
+        setUserList(state, action) {
+	        return {
+		        ...state,
+		        users: action.payload,
+		    }
         },
     }
 });
 
 export const {
-    userName,
-    userId,
-    userList,
+    setUserName,
+    setUserId,
+    setUserList,
   } = userSlice.actions
   
 export default userSlice.reducer;
-

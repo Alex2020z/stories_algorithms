@@ -15,20 +15,17 @@ export const initialState: State = {
 };
 
 export function reducer(state = initialState, action: ActionWithPayload): State {
-    let newState;
     switch (action.type) {
         case USER_NAME:
-            newState = {
+            return {
                 ...state,
                 userName: action.payload,
             };
-            return newState;
         case USER_ID:
-            newState = {
+            return {
                 ...state,
                 userId: action.payload,
             };
-            return newState;
         case USER_LIST:
             return {
                 ...state,
@@ -36,7 +33,6 @@ export function reducer(state = initialState, action: ActionWithPayload): State 
             };
     
         default:
-            console.log('reducer: default');
             return {...state};
     }
 }
